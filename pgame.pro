@@ -7,5 +7,6 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    carbar.h \
     login.h \
     menu.h
