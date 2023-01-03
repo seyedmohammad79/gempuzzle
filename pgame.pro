@@ -9,4 +9,5 @@ SOURCES += \
 HEADERS += \
     carbar.h \
     login.h \
-    menu.h
+    menu.h \
+    timer.h
