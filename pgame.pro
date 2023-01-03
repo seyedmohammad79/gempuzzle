@@ -7,4 +7,5 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    login.h \
     menu.h
