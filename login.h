@@ -1,4 +1,13 @@
-#ifndef LOGIN_H
-#define LOGIN_H
+#ifndef LOGIN_h12
+#define LOGIN_h12
+#include <string>
+using namespace std;
 
-#endif // LOGIN_H
+class login{
+public:
+    string usern;
+    string pass;
+    string score;
+    login();
+};
+#endif
