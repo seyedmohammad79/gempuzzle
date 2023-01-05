@@ -5,6 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
         carbar.cpp \
+        login.cpp \
         main.cpp \
         menu.cpp
 
