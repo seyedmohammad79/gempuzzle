@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        carbar.cpp \
         main.cpp \
         menu.cpp
 
