@@ -143,6 +143,7 @@ void z_user::add_user()
     }
     login user;
     user.usern=u;
+    cout<<endl;
     cout<<"enter password :";
     getline(cin,user.pass);
     checkpass(user.pass);
@@ -186,7 +187,7 @@ void z_user::sign_in()
         if(it.first==u)
             z=it.second;
     }
-    cout<<z.pass<<endl;
+    cout<<endl;
     cout<<"password :";
     string w;
     getline(cin,w);
