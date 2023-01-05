@@ -13,7 +13,7 @@
 
 using namespace std;
 
-#define user_file "user.txt"
+#define user_file "crbar.txt"
 
 vector<string> split(const string &x,char d){
     string tmp;
@@ -147,13 +147,6 @@ void z_user::add_user()
     getline(cin,user.pass);
     checkpass(user.pass);
     tb_user[u]=user;
-    ofstream us_file("C:\\Users\\hoseini\\Documents\\puzzle\\user1.txt",ios_base::app);
-    us_file.clear();
-    if(!us_file.is_open()){
-        cout << " ************cant write username file************** " << endl ;
-    }else{
-        us_file<<user.usern<<" "<<user.pass<<endl;
-    }
 //    else{
 //        for(auto x:tb_user){
 //            login user=x.second;
