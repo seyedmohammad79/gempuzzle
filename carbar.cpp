@@ -105,34 +105,9 @@ z_user::z_user()
         tb_user[b]=us;
     }
     userfile.close();
-   // ifstream userfile("C:\\Users\\hoseini\\Documents\\puzzle\\user.txt");
-//    if(userfile.is_open()){
-//        while(!userfile.eof()){
-//            string l;
-//            getline(userfile,l);
-//            if(l==" ")
-//                return;
-//            vector<string> res=split(l,' ');
-//            for(auto x:res)
-//                cout<<x<<endl;
-//        }
-//    }
 }
 void z_user::add_user()
 {
-//    ifstream userfile("C:\\Users\\hoseini\\Documents\\puzzle\\user.txt");
-//    string a;
-//    string b;
-//    string c;
-//    login us;
-//    while(userfile.good()){
-//        getline(userfile,a);
-//        istringstream s(a);
-//        s>>b>>c;
-//        us.usern=b;
-//        us.pass=c;
-//        tb_user[b]=us;
-//    }
     cout<<"username :";
     string u;
     cin.ignore();
@@ -160,19 +135,6 @@ void z_user::add_user()
 
 void z_user::sign_in()
 {
-//    ifstream user("C:\\Users\\hoseini\\Documents\\puzzle\\user.txt");
-//    string a;
-//    string b;
-//    string c;
-//    login us;
-//    while(user.good()){
-//        getline(user,a);
-//        istringstream s(a);
-//        s>>b>>c;
-//        us.usern=b;
-//        us.pass=c;
-//        tb_user[b]=us;
-//    }
     cout<<"username :";
     string u;
     cin.ignore();
@@ -200,6 +162,11 @@ void z_user::sign_in()
     cout<<" ***** start game ***** "<<endl;
     int n;
     cout<<endl;
+    int l;
+    cout<<"tedad khaneha: 8 or 15"<<endl;
+    cout<<endl;
+    cin>>l;
+    cout<<endl;
     cout<<"choose level of game from 1 to 10 :"<<endl;
     cout<<endl;
     cout<<"Level : ";
@@ -211,7 +178,7 @@ void z_user::sign_in()
     cout<<endl;
     cout<<"time mokaz : "<<b<<" "<<"minutes"<<endl;
     int score;
-    score=puzzlegame(a);
+    score=puzzlegame(a,l);
     score=score*(n);
     cout<<"your score :"<<score<<endl;
     z.score=to_string(score);
@@ -224,13 +191,19 @@ void z_user::guest()
 {
     cout<<" ****** start game ******"<<endl;
     int n;
+    cout<<endl;
+    int l;
+    cout<<"tedad khaneha: 8 or 15"<<endl;
+    cout<<endl;
+    cin>>l;
+    cout<<endl;
     cout<<"choose level of game from 1 to 10 :"<<endl;
     cin>>n;
     int a=level_game(n);
     cout<<"tedad harekat mojaz : "<<a<<endl;
     int b=time_game(a);
     cout<<"time mokaz : "<<b<<" "<<"minutes"<<endl;
-    puzzlegame(a);
+    puzzlegame(a,l);
 }
 
 void z_user::jadval()
@@ -259,16 +232,4 @@ z_user::~z_user()
         user2<<user.usern<< " " <<user.pass<<" "<<user.score<<endl;
         ;
     }
-
-//    ofstream us_file("C:\\Users\\hoseini\\Documents\\puzzle\\user.txt",ios_base::app);
-//    us_file.clear();
-//    if(!us_file.is_open()){
-//        cout << " ************cant write username file************** " << endl ;
-//    }else{
-//        for(auto x:tb_user){
-//          login user=x.second;
-//            us_file<<user.usern<< " " <<user.pass<<" "<<user.score<<endl;
-//            ;
-//        }
-//    }
 }
