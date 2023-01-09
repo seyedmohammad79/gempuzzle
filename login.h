@@ -8,6 +8,7 @@ public:
     string usern;
     string pass;
     string score;
+    string email;
     login();
 };
 #endif
