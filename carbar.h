@@ -10,6 +10,7 @@ public:
     void sign_in();
     void guest();
     void jadval();
+    void pass();
     ~z_user();
 };
 
