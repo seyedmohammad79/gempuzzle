@@ -94,14 +94,16 @@ z_user::z_user()
     string b;
     string c;
     string d;
+    string e;
     login us;
     while(userfile.good()){
         getline(userfile,a);
         istringstream s(a);
-        s>>b>>c>>d;
+        s>>b>>c>>d>>e;
         us.usern=b;
         us.pass=c;
         us.score=d;
+        us.email=e;
         tb_user[b]=us;
     }
     userfile.close();
@@ -121,7 +123,12 @@ void z_user::add_user()
     cout<<endl;
     cout<<"enter password :";
     getline(cin,user.pass);
+    cout<<endl;
     checkpass(user.pass);
+    cout<<endl;
+    cout<<"email :"<<endl;
+    getline(cin,user.email);
+    user.score="0";
     tb_user[u]=user;
 //    else{
 //        for(auto x:tb_user){
@@ -156,6 +163,12 @@ void z_user::sign_in()
     //cout<<w<<endl;
     if(w!=(z.pass)){
         cout<<"wrong password"<<endl;
+        string c;
+        cout<<endl;
+        cout<<"forget your password? write y for yes and write n for no"<<endl;
+        cin>>c;
+        if(c=="y")
+            pass();
         return;
     }
     z.pass=w;
@@ -219,6 +232,30 @@ void z_user::jadval()
     cout<<"________________________"<<endl;
 }
 
+void z_user::pass()
+{
+    string a,c;
+    cout<<"write your email :";
+    cin.ignore();
+    getline(cin,a);
+    login b;
+    for(auto x :tb_user){
+        if(x.second.email==a){
+            b=x.second;
+            c=x.second.usern;
+            cout<<endl;
+            cout<<"write new password :"<<endl;
+            string p;
+            getline(cin,p);
+            b.pass=p;
+            tb_user[c]=b;
+            cout<<endl;
+            cout<<"your password is changed.please sign in again"<<endl;
+            return;
+        }
+    }
+}
+
 z_user::~z_user()
 {
     ifstream user1;
@@ -229,7 +266,7 @@ z_user::~z_user()
     user2.open("user.txt",ios::app | ios::out);
     for(auto x:tb_user){
         login user=x.second;
-        user2<<user.usern<< " " <<user.pass<<" "<<user.score<<endl;
+        user2<<user.usern<< " " <<user.pass<<" "<<user.score<<" "<<user.email<<endl;
         ;
     }
 }
