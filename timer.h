@@ -26,7 +26,7 @@ void displayClock()
     cout << setfill('0') << setw(2) << seconds << " sec |" << endl;
     //cout << setfill(' ') << setw(55) << " --------------------------\n";
 }
-void timer(int n)
+void timer(int n , int &d)
 {
     while (seconds<=n) {
 
@@ -43,7 +43,8 @@ void timer(int n)
         }
     }
     cout<<"****** Game Over ******"<<endl;
-    return;
+    d=0;
+//    return;
 }
 
 
