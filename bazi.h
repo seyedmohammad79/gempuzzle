@@ -237,7 +237,7 @@ int winer2()  // chacks if player have solved the puzzel
     return ans;
 
 }
-int puzzlegame(int d,int l)
+void puzzlegame(int d,int l,int & score)
 {
     if(l==15){
 
@@ -296,7 +296,7 @@ int puzzlegame(int d,int l)
             int c = winer1();
             if(c == 1){
                 cout << "Bravo! You solved the puzle!" << endl;
-                return 15;
+                score= 15;
             }
             system("cls");
         }while(b<=d);
@@ -310,7 +310,7 @@ int puzzlegame(int d,int l)
         cout<<"|    ****** Game Over ******     |"<<endl;
         cout<<"|     ***              ***       |"<<endl;
         cout<<"|________________________________|"<<endl;
-        return score;
+//        return score;
     }
     if(l==8){
         srand(time(0));
@@ -368,7 +368,7 @@ int puzzlegame(int d,int l)
             int c = winer2();
             if(c == 1){
                 cout << "Bravo! You solved the puzle!" << endl;
-                return 8;
+                score= 8;
             }
             system("cls");
         }while(b<=d);
@@ -382,9 +382,9 @@ int puzzlegame(int d,int l)
         cout<<"|    ****** Game Over ******     |"<<endl;
         cout<<"|     ***              ***       |"<<endl;
         cout<<"|________________________________|"<<endl;
-        return score;
+//        return score;
     }
-    return 0;
+//    return 0;
 }
 
 #endif // BAZI_H
