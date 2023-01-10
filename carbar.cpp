@@ -10,6 +10,7 @@
 #include <string>
 #include <vector>
 #include <iomanip>
+#include <thread>
 
 using namespace std;
 
@@ -190,9 +191,15 @@ void z_user::sign_in()
     int b=time_game(a);
     cout<<endl;
     cout<<"time mokaz : "<<b<<" "<<"minutes"<<endl;
-    int score;
-    score=puzzlegame(a,l);
-    score=score*(n);
+    int score=0;
+    int d=1;
+    thread first(puzzlegame,a,l,ref(score));
+    thread second(timer,30,ref(d));
+    first.join();
+    second.join();
+    if(d==0)
+        return;
+    score=score*(n*l/2);
     cout<<"your score :"<<score<<endl;
     z.score=to_string(score);
     tb_user[u]=z;
@@ -215,8 +222,9 @@ void z_user::guest()
     int a=level_game(n);
     cout<<"tedad harekat mojaz : "<<a<<endl;
     int b=time_game(a);
+    int d=1;
     cout<<"time mokaz : "<<b<<" "<<"minutes"<<endl;
-    puzzlegame(a,l);
+    puzzlegame(a,l,ref(d));
 }
 
 void z_user::jadval()
