@@ -1,7 +1,7 @@
 #include "carbar.h"
 #include "login.h"
-#include "bazi.h"
 #include "menu.h"
+#include "timer.h"
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -11,6 +11,7 @@
 #include <vector>
 #include <iomanip>
 #include <thread>
+#include <future>
 
 using namespace std;
 
@@ -143,6 +144,7 @@ void z_user::add_user()
 
 void z_user::sign_in()
 {
+    cout<<endl;
     cout<<"username :";
     string u;
     cin.ignore();
@@ -173,6 +175,7 @@ void z_user::sign_in()
         return;
     }
     z.pass=w;
+    cout<<endl;
     cout<<" ***** start game ***** "<<endl;
     int n;
     cout<<endl;
@@ -194,11 +197,9 @@ void z_user::sign_in()
     int score=0;
     int d=1;
     thread first(puzzlegame,a,l,ref(score));
-    thread second(timer,30,ref(d));
+    thread second(timer,b,ref(d));
     first.join();
     second.join();
-    if(d==0)
-        return;
     score=score*(n*l/2);
     cout<<"your score :"<<score<<endl;
     z.score=to_string(score);
@@ -209,6 +210,7 @@ void z_user::sign_in()
 
 void z_user::guest()
 {
+    cout<<endl;
     cout<<" ****** start game ******"<<endl;
     int n;
     cout<<endl;
@@ -234,7 +236,6 @@ void z_user::jadval()
     cout<<"------------------------"<<endl;
     for(auto x:tb_user){
         login u=x.second;
-        //cout<<"|"<<x.first<<"      "<<"| "<<u.score<<"|"<<endl;
         cout<<left<<setw(10)<<x.first<<left<<setw(5)<<"|"<<left<<setw(10)<<u.score<<endl;
     }
     cout<<"________________________"<<endl;
